@@ -1,26 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { Clicker } from './componentes/Clicker/Clicker';
+import { NavBar } from "./componentes/NavBar/NavBar";
+
+
 
 function App() {
+
+  const [show, setShow] = useState(true)
+
+  const handleShow = () => {
+    setShow(!show)
+  }
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Bienvenidos a React JS
-        </p>
-        <h4>Miguel Rodriguez</h4>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <NavBar/>
+
+      {/* ejemplo para el desmontaje de un componente */}
+      <button onClick={handleShow}>show</button>
+      {show && <Clicker />}
+      
+      {/* <Clicker/> */}
+
     </div>
   );
 }
 
 export default App;
+
+// estados de un componente
+/*
+
+
+
+*/
